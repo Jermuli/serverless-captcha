@@ -10,7 +10,6 @@ function getCAPTCHA(){
       addPicture();
     }
   xmlHttp.open("GET", apiUrl, true); // true for asynchronous 
-  xmlHttp.responseType = 'json';
   xmlHttp.send();
 }
 
