@@ -40,6 +40,8 @@ function sendCAPTCHA(){
 	});
 	var data = {text : document.getElementById("b2").value, nonce : confirmation};
 	
+	document.getElementById("b11").innerHTML = document.getElementById("b2").value;
+	
 	xhttp.open("POST", apiUrl, true);
 	xhttp.setRequestHeader("Content-Type", "application/json");
 	xhttp.setRequestHeader("Cache-Control", "no-cache");
