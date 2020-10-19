@@ -38,7 +38,7 @@ function sendCAPTCHA(){
       			isHuman(jsonTemp);
   		}
 	});
-	var data = {text : getElementById("b2").value, nonce : confirmation};
+	var data = {text : document.getElementById("b2").value, nonce : confirmation};
 	
 	xhttp.open("POST", apiUrl, true);
 	xhttp.setRequestHeader("Content-Type", "application/json");
