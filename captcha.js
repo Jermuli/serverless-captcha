@@ -33,7 +33,7 @@ function sendCAPTCHA(){
 	xhttp.addEventListener("readystatechange", function () {
   		if (this.readyState === 4 && this.status == 200) {
 			json = JSON.parse(this.responseText);
-      isHuman(json);
+      			isHuman(json);
   		}
 	});
 
