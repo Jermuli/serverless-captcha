@@ -39,7 +39,7 @@ function sendCAPTCHA(){
 	var data = {text : getElementById("b2").value, nonce : confirmation};
 	
 	xhttp.open("POST", apiUrl, true);
-	xhttp.setRequestHeader('Content-Type', 'application/json; charset=UTF-8'));
+	xhttp.setRequestHeader("Content-Type", "application/json");
 	xhttp.setRequestHeader("Cache-Control", "no-cache");
 	xhttp.send(JSON.stringify(data));
 }
