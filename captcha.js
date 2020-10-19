@@ -8,7 +8,7 @@ function getCAPTCHA(){
       var json = JSON.parse(this.responseText);
       addPicture(json);
     }
-  xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+  xmlHttp.open("GET", apiUrl, true); // true for asynchronous 
   xmlHttp.send();
 }
 
@@ -37,7 +37,7 @@ function sendCAPTCHA(){
   		}
 	});
 
-	xhttp.open("POST", url, true);
+	xhttp.open("POST", apiUrl, true);
 	xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xhttp.setRequestHeader("Cache-Control", "no-cache");
 }
