@@ -1,5 +1,5 @@
 const apiUrl = 'https://075d9249.eu-gb.apigw.appdomain.cloud/captcha/action';
-var nonce;
+var confirmation;
 
 function getCAPTCHA(){
   var xmlHttp = new XMLHttpRequest();
@@ -14,7 +14,7 @@ function getCAPTCHA(){
 
 function addPicture(json){
   var img = document.createElement("img");
-  nonce = json.nonce;
+  confirmation = json.nonce;
   img.src = json.picture;
   var src = document.getElementById("b2"); 
   src.appendChild(img);
@@ -29,15 +29,17 @@ function isHuman(json){
 }
 
 function sendCAPTCHA(){
-  var xhttp = new XMLHttpRequest();
+ 	var xhttp = new XMLHttpRequest();
 	xhttp.addEventListener("readystatechange", function () {
   		if (this.readyState === 4 && this.status == 200) {
 			json = JSON.parse(this.responseText);
       			isHuman(json);
   		}
 	});
-
+	var data = {text : getElementById("b2").value, nonce : confirmation};
+	
 	xhttp.open("POST", apiUrl, true);
-	xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xhttp.setRequestHeader('Content-Type', 'application/json; charset=UTF-8'));
 	xhttp.setRequestHeader("Cache-Control", "no-cache");
+	xhttp.send(JSON.stringify(data));
 }
