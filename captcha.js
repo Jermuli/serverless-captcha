@@ -6,16 +6,17 @@ function getCAPTCHA(){
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.onreadystatechange = function() { 
     if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-      json = JSON.parse(this.responseText);
+      json = xmlHttp.response;//JSON.parse(this.responseText);
       addPicture();
     }
   xmlHttp.open("GET", apiUrl, true); // true for asynchronous 
+  hmlHttp.responseType = 'json';
   xmlHttp.send();
 }
 
 function addPicture(){
   var img = document.createElement("img");
-  //confirmation = json.nonce;
+  confirmation = json.nonce;
   img.src = json.picture;
   var src = document.getElementById("b2"); 
   src.appendChild(img);
