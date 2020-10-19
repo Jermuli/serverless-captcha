@@ -9,15 +9,26 @@ function getCAPTCHA(){
       json = JSON.parse(xmlHttp.responseText);
       addPicture();
     }
-  xmlHttp.open("GET", apiUrl, true); // true for asynchronous 
+  xmlHttp.open("GET", apiUrl, true);
   xmlHttp.send();
 }
 
 function addPicture(){
-  var elem = document.createElement("img");
+  var can = document.createElement("CANVAS"); //document.getElementById('canvas1');
+  var ctx = can.getContext('2d');
+
+  var img = new Image();
+
+  img.onload = function() {
+    ctx.drawImage(img, 0, 0);
+  }
+
+  img.src = json.picture;
+  document.getElementById("b2").appendChild(elem);
+  /*var elem = document.createElement("img");
   confirmation = json.nonce;
   elem.src = json.picture;
-  document.getElementById("b2").appendChild(elem);
+  document.getElementById("b2").appendChild(elem);*/
 }
 
 function isHuman(jsonTemp){
