@@ -15,11 +15,10 @@ function getCAPTCHA(){
 }
 
 function addPicture(){
-  var img = document.createElement("img");
-  confirmation = "checker";//json.nonce;
-  img.src = "http://users.jyu.fi/~jejopakk/ties4560/captcha/captchatest.png";//json.picture;
-  var src = document.getElementById("b2"); 
-  src.appendChild(img);
+  var elem = document.createElement("img");
+  confirmation = json.nonce;
+  elem.src = json.picture;
+  document.getElementById("b2").appendChild(elem);
 }
 
 function isHuman(jsonTemp){
