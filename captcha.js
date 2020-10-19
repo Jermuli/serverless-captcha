@@ -23,7 +23,7 @@ function addPicture(){
 }
 
 function isHuman(jsonTemp){
-  if(jsontTemp.passed == true){
+  if(jsonTemp.passed == true){
     document.getElementById("h1").innerHTML = "You are human";
   }else{
     document.getElementById("h1").innerHTML = "You could be robot";
