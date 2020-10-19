@@ -6,7 +6,7 @@ function getCAPTCHA(){
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.onreadystatechange = function() { 
     if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-      json = xmlHttp.response;//JSON.parse(this.responseText);
+      json = JSON.parse(xmlHttp.responseText);
       addPicture();
     }
   xmlHttp.open("GET", apiUrl, true); // true for asynchronous 
@@ -33,7 +33,7 @@ function sendCAPTCHA(){
  	var xhttp = new XMLHttpRequest();
 	xhttp.addEventListener("readystatechange", function () {
   		if (this.readyState === 4 && this.status == 200) {
-			jsonTemp = JSON.parse(this.responseText);
+			jsonTemp = JSON.parse(xhttp.responseText);
       			isHuman(jsonTemp);
   		}
 	});
