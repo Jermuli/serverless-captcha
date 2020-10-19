@@ -15,7 +15,7 @@ function getCAPTCHA(){
 
 function addPicture(){
   var img = document.createElement("img");
-  confirmation = json.nonce;
+  //confirmation = json.nonce;
   img.src = json.picture;
   var src = document.getElementById("b2"); 
   src.appendChild(img);
