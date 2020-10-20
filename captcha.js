@@ -1,4 +1,3 @@
-const apiUrl = 'https://075d9249.eu-gb.apigw.appdomain.cloud/captcha/action';
 var confirmation;
 var json;
 
@@ -7,7 +6,7 @@ function getCAPTCHA(){
   xmlHttp.onreadystatechange = function() { 
     if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
       json = JSON.parse(xmlHttp.responseText);
-      confirmation = json.nonce;
+      confirmation = json.picture;
       addPicture();
     }
   xmlHttp.open("GET", apiUrl, true);
@@ -15,7 +14,10 @@ function getCAPTCHA(){
 }
 
 function addPicture(){
-  var can = document.createElement("CANVAS"); //document.getElementById('canvas1');
+  var image = new Image();
+  image.src = json.picture;
+  document.getElementById("b2").appendChild(image);
+  /*var can = document.createElement("CANVAS"); //document.getElementById('canvas1');
   var ctx = can.getContext('2d');
 
   var img = new Image();
@@ -26,7 +28,7 @@ function addPicture(){
 
   img.src = json.picture;
   document.getElementById("b2").appendChild(elem);
-  /*var elem = document.createElement("img");
+  var elem = document.createElement("img");
   confirmation = json.nonce;
   elem.src = json.picture;
   document.getElementById("b2").appendChild(elem);*/
@@ -48,7 +50,7 @@ function sendCAPTCHA(){
       			isHuman(jsonTemp);
   		}
 	});
-	var data = {"text" : document.getElementById("t1").value, "nonce" : confirmation};
+	var data = {"text" : document.getElementById("t1").value, "picture" : confirmation};
 	
 	xhttp.open("POST", apiUrl, true);
 	xhttp.setRequestHeader("Content-Type", "application/json");
