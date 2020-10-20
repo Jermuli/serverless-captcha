@@ -4,11 +4,12 @@ var confirmation;
 
 function getCAPTCHA(){
   var xmlHttp = new XMLHttpRequest();
-  xmlHttp.onreadystatechange = function() { 
-    if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-      var responseData = JSON.parse(xmlHttp.responseText);
-      addPicture(responseData);
+  hmlHttp.addEventListener("readystatechange", function () {
+    if (this.readyState === 4 && this.status == 200) {
+	var responseData = JSON.parse(xmlHttp.responseText);
+      	addPicture(responseData);
     }
+  });
   xmlHttp.open("GET", apiUrl, true);
   xmlHttp.send();
 }
