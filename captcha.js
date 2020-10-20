@@ -1,3 +1,4 @@
+const apiUrl = 'https://075d9249.eu-gb.apigw.appdomain.cloud/captcha/action';
 var confirmation;
 var json;
 
