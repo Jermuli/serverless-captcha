@@ -7,7 +7,6 @@ function getCAPTCHA(){
   xmlHttp.onreadystatechange = function() { 
     if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
       json = JSON.parse(xmlHttp.responseText);
-      confirmation = json.picture;
       addPicture();
     }
   xmlHttp.open("GET", apiUrl, true);
@@ -15,6 +14,7 @@ function getCAPTCHA(){
 }
 
 function addPicture(){
+  confirmation = json.picture;
   var image = new Image();
   image.src = json.picture;
   document.getElementById("b2").appendChild(image);
