@@ -6,7 +6,7 @@ function getCAPTCHA(){
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.onreadystatechange = function() { 
     if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-      responseData = JSON.parse(xmlHttp.responseText);
+      var responseData = JSON.parse(xmlHttp.responseText);
       addPicture(responseData);
     }
   xmlHttp.open("GET", apiUrl, true);
