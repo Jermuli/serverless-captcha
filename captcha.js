@@ -1,22 +1,22 @@
 const apiUrl = 'https://075d9249.eu-gb.apigw.appdomain.cloud/captcha/action';
 var confirmation;
-var json;
+//var json;
 
 function getCAPTCHA(){
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.onreadystatechange = function() { 
     if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-      json = JSON.parse(xmlHttp.responseText);
-      addPicture();
+      responseData = JSON.parse(xmlHttp.responseText);
+      addPicture(responseData);
     }
   xmlHttp.open("GET", apiUrl, true);
   xmlHttp.send();
 }
 
-function addPicture(){
-  confirmation = json.picture;
+function addPicture(reseponseData){
+  confirmation = responseData.picture;
   var image = new Image();
-  image.src = json.picture;
+  image.src = confirmation;
   document.getElementById("b2").appendChild(image);
   /*var can = document.createElement("CANVAS"); //document.getElementById('canvas1');
   var ctx = can.getContext('2d');
