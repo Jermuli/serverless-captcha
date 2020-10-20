@@ -17,9 +17,13 @@ function getCAPTCHA(){
 function addPicture(responseData){
   confirmation = responseData.picture;
   var image = new Image();
+  image.onload = function(){
+    console.log(confirmation);
+    console.log(image.width); // image is loaded and we have image width 
+  }
   image.src = confirmation;
   document.body.appendChild(image);
-  document.getElementById("b2").appendChild(image);
+  //document.getElementById("b2").appendChild(image);
 }
 
 function isHuman(jsonTemp){
