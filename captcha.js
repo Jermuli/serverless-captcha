@@ -5,7 +5,7 @@ function getCAPTCHA(){
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.addEventListener("readystatechange", function () {
     if (this.readyState === 4 && this.status == 200) {
-	    var responseData = JSON.parse(xmlHttp.responseText);
+	var responseData = JSON.parse(xmlHttp.responseText);
       	addPicture(responseData);
     }
   });
@@ -18,6 +18,7 @@ function addPicture(responseData){
   confirmation = responseData.picture;
   var image = new Image();
   image.src = confirmation;
+  document.body.appendChild(image);
   document.getElementById("b2").appendChild(image);
 }
 
