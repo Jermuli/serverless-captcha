@@ -4,7 +4,7 @@ var confirmation;
 
 function getCAPTCHA(){
   var xmlHttp = new XMLHttpRequest();
-  hmlHttp.addEventListener("readystatechange", function () {
+  xmlHttp.addEventListener("readystatechange", function () {
     if (this.readyState === 4 && this.status == 200) {
 	var responseData = JSON.parse(xmlHttp.responseText);
       	addPicture(responseData);
